@@ -1,0 +1,50 @@
+.class public Casting
+.super java/lang/Object
+.source Casting.java
+
+.field static final ascStr Ljava/lang/String; = "ascii "
+.field static final chrStr Ljava/lang/String; = " character "
+
+.method public <init>()V
+.limit registers 1
+; this: v0 (LCasting;)
+.line 1
+	invoke-direct	{v0},java/lang/Object/<init>	; <init>()V
+	return-void	
+.end method
+
+.method public static main([Ljava/lang/String;)V
+.limit registers 5
+; parameter[0] : v4 ([Ljava/lang/String;)
+.line 6
+	const/4	v0,0
+l1fe:
+	const/16	v1,128
+	if-ge	v0,v1,l252
+.line 7
+	sget-object	v1,java/lang/System.out Ljava/io/PrintStream;
+	new-instance	v2,java/lang/StringBuilder
+	invoke-direct	{v2},java/lang/StringBuilder/<init>	; <init>()V
+	const-string	v3,"ascii "
+	invoke-virtual	{v2,v3},java/lang/StringBuilder/append	; append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	move-result-object	v2
+	invoke-virtual	{v2,v0},java/lang/StringBuilder/append	; append(I)Ljava/lang/StringBuilder;
+	move-result-object	v2
+	const-string	v3," character "
+	invoke-virtual	{v2,v3},java/lang/StringBuilder/append	; append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	move-result-object	v2
+	invoke-virtual	{v2,v0},java/lang/StringBuilder/append	; append(C)Ljava/lang/StringBuilder;
+	move-result-object	v2
+	invoke-virtual	{v2},java/lang/StringBuilder/toString	; toString()Ljava/lang/String;
+	move-result-object	v2
+	invoke-virtual	{v1,v2},java/io/PrintStream/println	; println(Ljava/lang/String;)V
+.line 6
+	add-int/lit8	v0,v0,1
+	int-to-char	v0,v0
+	goto	l1fe
+l252:
+.line 9
+	return-void	
+.end method
+
+

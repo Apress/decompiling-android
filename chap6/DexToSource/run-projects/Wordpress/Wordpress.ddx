@@ -1,0 +1,30 @@
+.method public static escapeHtml(Ljava/io/Writer;Ljava/lang/String;)V
+.throws Ljava/io/IOException;
+.limit registers 4
+; parameter[0] : v2 (Ljava/io/Writer;)
+; parameter[1] : v3 (Ljava/lang/String;)
+
+.line 27
+	if-nez v2,l7ba4c
+.line 28
+	new-instance v0,java/lang/IllegalArgumentException
+	const-string v1,"The Writer must not be null."
+	invoke-direct {v0,v1},java/lang/IllegalArgumentException/<init>
+	; <init>(Ljava/lang/String;)V
+	throw v0
+	
+l7ba4c:
+.line 30
+	if-nez v3,l7ba52
+	l7ba50:
+.line 34
+	return-void
+	
+l7ba52:
+.line 33
+	sget-object v0,org/wordpress/android/util/Entities.HTML40_escape
+	Lorg/wordpress/android/util/Entities;
+	invoke-virtual {v0,v2,v3},org/wordpress/android/util/Entities/escape
+	; escape(Ljava/io/Writer;Ljava/lang/String;)V
+	goto l7ba50
+.end method

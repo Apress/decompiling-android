@@ -1,0 +1,26 @@
+.class public org/example/Hello/Hello
+.super android/app/Activity
+.source Hello.java
+
+.method public <init>()V
+.limit registers 1
+; this: v0 (Lorg/example/Hello/Hello;)
+.line 6
+	invoke-direct {v0},android/app/Activity/<init> ; <init>()V
+	return-void
+.end method
+
+.method public onCreate(Landroid/os/Bundle;)V
+.limit registers 3
+; this: v1 (Lorg/example/Hello/Hello;)
+; parameter[0] : v2 (Landroid/os/Bundle;)
+.line 10
+	invoke-super {v1,v2},android/app/Activity/onCreate ;
+	onCreate(Landroid/os/Bundle;)V
+.line 11
+	const/high16 v0,32515
+	invoke-virtual {v1,v0},org/example/Hello/Hello/setContentView ;
+	setContentView(I)V
+.line 12
+	return-void
+.end method
